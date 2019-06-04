@@ -23,9 +23,12 @@ class New extends Component {
             timeStamp: new Date().getTime()
         }
         console.log(postObj)
-        Axios.post('https://cupido-backend.herokuapp.com/api/meetings/new', postObj)
+        Axios.post('http://localhost:5000/api/meetings/new', postObj)
         .then(data => {
             console.log(data)
+            if(data) {
+                this.props.history.push('/dashboard')
+            }
         })
     }
 
